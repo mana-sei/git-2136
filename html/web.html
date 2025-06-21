@@ -1,0 +1,86 @@
+<!-- goal.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>行動目標記録アプリ</title>
+  <style>
+    #goalForm { display: none; }
+  </style>
+</head>
+
+<body>
+  <h1>行動目標を記録しよう</h1>
+  <button id="editBtn">編集</button>
+  <form id="goalForm">
+    <label for="inputText">年間目標を入力:</label>
+    <input type="text" id="inputText" placeholder="ここに入力" />
+    <button type="submit" id="saveBtn">保存</button>
+  </form>
+  <div id="output"></div>
+  <script>
+    const editBtn = document.getElementById('editBtn');
+    const form = document.getElementById('goalForm');
+    const input = document.getElementById('inputText');
+    const output = document.getElementById('output');
+    let editingP = null; // 編集中のp要素
+
+    // 編集ボタンでフォーム表示
+    editBtn.addEventListener('click', function () {
+      form.style.display = "block";
+      editBtn.style.display = "none";
+      input.value = "";
+      editingP = null;
+      input.focus();
+    });
+
+    // 保存ボタン（フォーム送信）で目標追加または編集
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const text = input.value.trim();
+      if (text === "") return;
+
+      if (editingP) {
+        // 編集中なら内容を更新
+        editingP.querySelector('span').textContent = text;
+        editingP = null;
+      } else {
+        // 新規追加
+        const p = document.createElement('p');
+        const span = document.createElement('span');
+        span.textContent = text;
+        p.appendChild(span);
+
+        // 変更ボタン
+        const changeBtn = document.createElement('button');
+        changeBtn.textContent = "変更";
+        changeBtn.type = "button";
+        changeBtn.addEventListener('click', function () {
+          input.value = span.textContent;
+          form.style.display = "block";
+          editBtn.style.display = "none";
+          editingP = p;
+          input.focus();
+        });
+
+        // 削除ボタン
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = "削除";
+        deleteBtn.type = "button";
+        deleteBtn.addEventListener('click', function () {
+          p.remove();
+        });
+
+        p.appendChild(changeBtn);
+        p.appendChild(deleteBtn);
+        output.appendChild(p);
+      }
+
+      // フォームを隠し、編集ボタンを再表示
+      form.style.display = "none";
+      editBtn.style.display = "inline";
+      input.value = "";
+    });
+  </script>
+</body>
+</html>

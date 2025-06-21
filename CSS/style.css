@@ -1,0 +1,65 @@
+/* ボタンの見た目を可愛くするためのスタイル */
+.BtnStyle{
+  /* ボタンの内側の余白（上下12px、左右32px） */
+  padding: 12px 32px;
+  /* ピンク色のグラデーション背景 */
+  background: linear-gradient(90deg, #ffb6c1 0%, #ffe4e1 100%);
+  /* 文字色を白にする */
+  color: #fff;
+  /* 文字を少し大きくする */
+  font-size: 1.2em;
+  /* 文字を太字にする */
+  font-weight: bold;
+  /* 枠線を消す */
+  border: none;
+  /* 角を丸くする（30px） */
+  border-radius: 30px;
+  /* ふんわりした影をつける */
+  box-shadow: 0 4px 12px rgba(255,182,193,0.3);
+  /* マウスを乗せると指マークにする */
+  cursor: pointer;
+  /* 背景や動きの変化をなめらかにする */
+  transition: background 0.3s, transform 0.2s;
+  /* フォーカス時の枠線を消す */
+  outline: none;
+  /* 文字の間隔を少し広げる */
+  letter-spacing: 0.1em;
+}
+
+/* ボタンにマウスを乗せたときのスタイル */
+.BtnStyle:hover {
+  /* ホバー時のグラデーションを逆にする */
+  background: linear-gradient(90deg, #ffe4e1 0%, #ffb6c1 100%);
+  /* 少し大きく＆ちょっと傾ける */
+  transform: scale(1.05) rotate(-2deg);
+  /* 影を強くする */
+  box-shadow: 0 6px 18px rgba(255,182,193,0.5);
+}
+
+/* h1（タイトル）の見た目を可愛くするためのスタイル */
+h1 {
+  /* 丸みのある可愛いフォントを指定 */
+  font-family: "Hiragino Maru Gothic Pro", "Rounded Mplus 1c", "Arial Rounded MT Bold", "Arial", sans-serif;
+  /* 文字色をピンクにする */
+  color: #ff69b4;
+  /* 文字を大きくする */
+  font-size: 2.2em;
+  /* 文字を太字にする */
+  font-weight: bold;
+  /* 文字の間隔を少し広げる */
+  letter-spacing: 0.12em;
+  /* 文字を中央に寄せる */
+  text-align: center;
+  /* タイトルの背景をピンクのグラデーションにする */
+  background: linear-gradient(90deg, #ffe4e1 0%, #ffb6c1 100%);
+  /* 角を丸くする（20px） */
+  border-radius: 20px;
+  /* 上下に余白をつける */
+  padding: 18px 0;
+  /* 下に余白をつける */
+  margin-bottom: 30px;
+  /* ふんわりした影をつける */
+  box-shadow: 0 2px 10px rgba(255,182,193,0.18);
+  /* ピンク色の枠線をつける */
+  border: 2px solid #ffb6c1;
+}
